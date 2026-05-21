@@ -1888,3 +1888,68 @@ ul { list-style: none; }
 body * {
   visibility: visible;
 }
+html, body {
+  max-width: 100%;
+  overflow-x: hidden;
+}
+
+.reveal,
+.reveal.revealed {
+  opacity: 1 !important;
+  transform: none !important;
+  visibility: visible !important;
+}
+
+.faq__item.open .faq__answer {
+  padding-bottom: 22px;
+}
+
+.offer__card,
+.offer__columns,
+.offer__includes,
+.offer__pricing,
+.offer__price-card,
+.offer__list,
+.offer__list li {
+  min-width: 0;
+  max-width: 100%;
+}
+
+.offer__list li {
+  align-items: flex-start;
+}
+
+.offer__list li span,
+.offer__price-card,
+.offer__guarantee,
+.offer__security {
+  overflow-wrap: anywhere;
+  word-break: normal;
+}
+
+@media (max-width: 768px) {
+  .offer__card {
+    padding: 32px 20px;
+    border-radius: 28px;
+  }
+
+  .offer__columns {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 28px;
+  }
+
+  .offer__title {
+    font-size: 38px;
+  }
+
+  .offer__price-value {
+    font-size: 84px;
+  }
+
+  .offer .btn,
+  .sticky-cta__btn {
+    width: 100%;
+    max-width: 100%;
+  }
+}
