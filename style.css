@@ -1953,3 +1953,19 @@ html, body {
     max-width: 100%;
   }
 }
+.faq__answer {
+  display: none;
+  max-height: none !important;
+  height: auto !important;
+  overflow: visible !important;
+  opacity: 1 !important;
+  visibility: visible !important;
+}
+
+.faq__item.active .faq__answer {
+  display: block !important;
+}
+
+.faq__question {
+  cursor: pointer;
+}
