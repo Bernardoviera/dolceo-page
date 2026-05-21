@@ -3,29 +3,13 @@ document.addEventListener("DOMContentLoaded", function () {
     el.classList.add("revealed");
   });
 
-  document.querySelectorAll(".faq__item").forEach((item) => {
-    const button = item.querySelector(".faq__question");
-    const answer = item.querySelector(".faq__answer");
-
-    if (!button || !answer) return;
-
-    answer.style.display = "none";
-
+  document.querySelectorAll(".faq__question").forEach((button) => {
     button.addEventListener("click", function () {
-      const isOpen = answer.style.display === "block";
+      const item = button.closest(".faq__item");
 
-      document.querySelectorAll(".faq__answer").forEach((a) => {
-        a.style.display = "none";
-      });
+      if (!item) return;
 
-      document.querySelectorAll(".faq__question").forEach((q) => {
-        q.setAttribute("aria-expanded", "false");
-      });
-
-      if (!isOpen) {
-        answer.style.display = "block";
-        button.setAttribute("aria-expanded", "true");
-      }
+      item.classList.toggle("active");
     });
   });
 });
