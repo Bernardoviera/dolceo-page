@@ -52,3 +52,33 @@ path = Path("/mnt/data/script.js")
 path.write_text(script, encoding="utf-8")
 
 print(f"Arquivo salvo em: {path}")
+document.querySelectorAll(".faq__item").forEach((item) => {
+  const button = item.querySelector(".faq__question");
+  const answer = item.querySelector(".faq__answer");
+
+  if (!button || !answer) return;
+
+  answer.style.maxHeight = "0px";
+  answer.style.overflow = "hidden";
+  answer.style.transition = "max-height 0.35s ease";
+
+  button.addEventListener("click", () => {
+    const isOpen = item.classList.contains("active");
+
+    document.querySelectorAll(".faq__item").forEach((other) => {
+      other.classList.remove("active");
+
+      const otherButton = other.querySelector(".faq__question");
+      const otherAnswer = other.querySelector(".faq__answer");
+
+      if (otherButton) otherButton.setAttribute("aria-expanded", "false");
+      if (otherAnswer) otherAnswer.style.maxHeight = "0px";
+    });
+
+    if (!isOpen) {
+      item.classList.add("active");
+      button.setAttribute("aria-expanded", "true");
+      answer.style.maxHeight = answer.scrollHeight + "px";
+    }
+  });
+});
