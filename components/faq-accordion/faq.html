@@ -1,0 +1,44 @@
+<!-- ============================================================
+   FAQ ACCORDION — Perguntas e respostas
+   Copie o bloco .faq__item quantas vezes precisar.
+   O id do faq__answer deve ser único (faq1, faq2...) e
+   corresponder ao aria-controls do botão acima dele.
+   ============================================================ -->
+<section class="faq" id="faq" aria-labelledby="faq-title">
+  <div class="container">
+    <div class="section-header">
+      <div class="section-tag">Dúvidas frequentes</div>
+      <h2 id="faq-title" class="section-title">Tudo que você precisa saber</h2>
+    </div>
+
+    <div class="faq__list" role="list">
+
+      <!-- Item 1 -->
+      <div class="faq__item" role="listitem">
+        <button class="faq__question" aria-expanded="false" aria-controls="faq1">
+          <span>Pergunta 1 aqui?</span>
+          <div class="faq__icon" aria-hidden="true">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+          </div>
+        </button>
+        <div class="faq__answer" id="faq1" role="region">
+          <p>Resposta da pergunta 1 aqui.</p>
+        </div>
+      </div>
+
+      <!-- Item 2 -->
+      <div class="faq__item" role="listitem">
+        <button class="faq__question" aria-expanded="false" aria-controls="faq2">
+          <span>Pergunta 2 aqui?</span>
+          <div class="faq__icon" aria-hidden="true">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+          </div>
+        </button>
+        <div class="faq__answer" id="faq2" role="region">
+          <p>Resposta da pergunta 2 aqui.</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>

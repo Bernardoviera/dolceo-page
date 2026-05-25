@@ -237,7 +237,7 @@ ul { list-style: none; }
 
 /* ===== ANIMATIONS ===== */
 .reveal {
-  opacity: 1;
+  opacity: 0;
   transform: translateY(28px);
   transition: opacity 0.7s cubic-bezier(0.4,0,0.2,1), transform 0.7s cubic-bezier(0.4,0,0.2,1);
 }
@@ -245,6 +245,10 @@ ul { list-style: none; }
 .reveal.revealed {
   opacity: 1;
   transform: translateY(0);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .reveal { opacity: 1; transform: none; transition: none; }
 }
 
 /* ===== HERO ===== */
@@ -1550,7 +1554,7 @@ ul { list-style: none; }
   transition: border-color var(--transition-base), box-shadow var(--transition-base);
 }
 
-.faq__item.open {
+.faq__item.active {
   border-color: var(--color-rose);
   box-shadow: var(--shadow-sm);
 }
@@ -1571,7 +1575,7 @@ ul { list-style: none; }
 }
 
 .faq__question:hover { color: var(--color-rose-deep); }
-.faq__item.open .faq__question { color: var(--color-rose-deep); }
+.faq__item.active .faq__question { color: var(--color-rose-deep); }
 
 .faq__icon {
   width: 32px; height: 32px;
@@ -1584,7 +1588,7 @@ ul { list-style: none; }
   transition: transform var(--transition-base), background var(--transition-base);
 }
 
-.faq__item.open .faq__icon {
+.faq__item.active .faq__icon {
   transform: rotate(180deg);
   background: var(--color-rose);
   color: white;
@@ -1803,6 +1807,19 @@ ul { list-style: none; }
   .app-screen__phone--lg { width: 180px; }
 }
 
+/* Desativa animações pesadas dos orbs em mobile (performance) */
+@media (max-width: 640px) {
+  .orb--1, .orb--2, .orb--3 {
+    animation: none;
+    filter: blur(40px);
+    opacity: 0.5;
+  }
+  .app-section__orb, .offer__orb, .final-cta__orb {
+    filter: blur(40px);
+    opacity: 0.6;
+  }
+}
+
 @media (max-width: 640px) {
   :root {
     --space-xl: 60px;
@@ -1867,6 +1884,7 @@ ul { list-style: none; }
 }
 
 /* ===== UTILITY ===== */
+/* ===== UTILITY: delay helpers ===== */
 [data-delay="50"]  { transition-delay: 50ms; }
 [data-delay="80"]  { transition-delay: 80ms; }
 [data-delay="100"] { transition-delay: 100ms; }
@@ -1876,31 +1894,15 @@ ul { list-style: none; }
 [data-delay="240"] { transition-delay: 240ms; }
 [data-delay="250"] { transition-delay: 250ms; }
 [data-delay="300"] { transition-delay: 300ms; }
+[data-delay="350"] { transition-delay: 350ms; }
 [data-delay="400"] { transition-delay: 400ms; }
 
-.reveal,
-.reveal.revealed {
-  opacity: 1 !important;
-  transform: none !important;
-  visibility: visible !important;
-}
-
-body * {
-  visibility: visible;
-}
 html, body {
   max-width: 100%;
   overflow-x: hidden;
 }
 
-.reveal,
-.reveal.revealed {
-  opacity: 1 !important;
-  transform: none !important;
-  visibility: visible !important;
-}
-
-.faq__item.open .faq__answer {
+.faq__item.active .faq__answer {
   padding-bottom: 22px;
 }
 
@@ -1968,4 +1970,66 @@ html, body {
 
 .faq__question {
   cursor: pointer;
+}
+
+/* ===== OFFER TIMER ===== */
+.offer__timer {
+  background: rgba(239,147,160,0.08);
+  border: 1px solid rgba(239,147,160,0.22);
+  border-radius: var(--radius-md);
+  padding: 16px 20px;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.offer__timer-label {
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--color-rose-deep);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  margin-bottom: 10px;
+}
+
+.offer__timer-display {
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  gap: 6px;
+}
+
+.offer__timer-unit {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2px;
+  min-width: 52px;
+}
+
+.offer__timer-unit span {
+  font-family: var(--font-display);
+  font-size: 34px;
+  font-weight: 600;
+  line-height: 1;
+  background: var(--grad-cta);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  font-variant-numeric: tabular-nums;
+}
+
+.offer__timer-unit small {
+  font-size: 10px;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--color-text-muted);
+}
+
+.offer__timer-sep {
+  font-family: var(--font-display);
+  font-size: 26px;
+  font-weight: 600;
+  color: var(--color-rose-deep);
+  margin-top: 4px;
+  line-height: 1;
 }

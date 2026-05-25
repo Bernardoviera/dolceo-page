@@ -12,6 +12,13 @@
   <meta property="og:description" content="Um método criado para mulheres que cansaram do efeito sanfona, da culpa alimentar e da compulsão por doces." />
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://metodoDolceo.com.br" />
+  <meta property="og:image" content="https://metodoDolceo.com.br/og-image.jpg" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Método Dolceo | Emagreça sem dietas restritivas" />
+  <meta name="twitter:description" content="Um método criado para mulheres que cansaram do efeito sanfona, da culpa alimentar e da compulsão por doces." />
+  <meta name="twitter:image" content="https://metodoDolceo.com.br/og-image.jpg" />
 
   <!-- Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -163,12 +170,12 @@
     <div class="container">
       <div class="proof-bar__inner">
         <div class="proof-bar__item reveal">
-          <strong>+2.400</strong>
+          <strong>+<span data-target="2400" data-suffix="">2.400</span></strong>
           <span>mulheres transformadas</span>
         </div>
         <div class="proof-bar__divider" aria-hidden="true"></div>
         <div class="proof-bar__item reveal" data-delay="100">
-          <strong>4.9 ★</strong>
+          <strong><span data-target="4.9" data-decimals="1">4.9</span> ★</strong>
           <span>avaliação média</span>
         </div>
         <div class="proof-bar__divider" aria-hidden="true"></div>
@@ -422,11 +429,11 @@
           </div>
           <div class="emotional__stats">
             <div class="emotional__stat">
-              <strong>89%</strong>
+              <strong><span data-target="89" data-suffix="%">89%</span></strong>
               <span>relatam fim da compulsão na 1ª semana</span>
             </div>
             <div class="emotional__stat">
-              <strong>94%</strong>
+              <strong><span data-target="94" data-suffix="%">94%</span></strong>
               <span>sentem mais leveza e autoestima em 30 dias</span>
             </div>
           </div>
@@ -577,6 +584,27 @@
               </div>
               <p class="offer__price-installments">ou 6x de R$ 8,83</p>
 
+              <!-- Urgency countdown timer -->
+              <div class="offer__timer" id="countdown-timer" aria-label="Tempo restante para esta oferta">
+                <p class="offer__timer-label">⏳ Oferta especial expira em:</p>
+                <div class="offer__timer-display" aria-live="polite">
+                  <div class="offer__timer-unit">
+                    <span data-h>00</span>
+                    <small>horas</small>
+                  </div>
+                  <span class="offer__timer-sep" aria-hidden="true">:</span>
+                  <div class="offer__timer-unit">
+                    <span data-m>00</span>
+                    <small>min</small>
+                  </div>
+                  <span class="offer__timer-sep" aria-hidden="true">:</span>
+                  <div class="offer__timer-unit">
+                    <span data-s>00</span>
+                    <small>seg</small>
+                  </div>
+                </div>
+              </div>
+
               <a href="https://pay.kiwify.com.br/smJ8YgZ?utm_source=lp&utm_medium=offer&utm_campaign=dolceo"
                  class="btn btn--primary btn--lg offer__cta"
                  onclick="trackEvent('offer_cta')"
@@ -685,6 +713,42 @@
             <p>Após a compra, você é convidada para um grupo privado com mais de 2.400 mulheres que estão na mesma jornada. Compartilhamos receitas, vitórias, dificuldades e muito apoio. É um espaço seguro e acolhedor para a sua transformação.</p>
           </div>
         </div>
+
+        <div class="faq__item reveal" data-delay="300" role="listitem">
+          <button class="faq__question" aria-expanded="false" aria-controls="faq7">
+            <span>Funciona para quem tem hipotireoidismo ou outras condições?</span>
+            <div class="faq__icon" aria-hidden="true">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+            </div>
+          </button>
+          <div class="faq__answer" id="faq7" role="region">
+            <p>O Método Dolceo trabalha principalmente o lado emocional e comportamental da alimentação, o que é benéfico independente de qualquer condição. Muitas alunas com hipotireoidismo, SOP e outras condições relataram ótimos resultados. Dito isso, o Dolceo não substitui acompanhamento médico — recomendamos que você siga as orientações do seu médico em paralelo.</p>
+          </div>
+        </div>
+
+        <div class="faq__item reveal" data-delay="350" role="listitem">
+          <button class="faq__question" aria-expanded="false" aria-controls="faq8">
+            <span>Precisa de internet? Funciona offline?</span>
+            <div class="faq__icon" aria-hidden="true">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+            </div>
+          </button>
+          <div class="faq__answer" id="faq8" role="region">
+            <p>Para acessar o app completo você precisa de conexão à internet. Porém, as receitas e o plano diário podem ser salvos no celular para consulta rápida sem internet. Em viagens ou áreas com sinal fraco, os conteúdos salvos ficam disponíveis normalmente.</p>
+          </div>
+        </div>
+
+        <div class="faq__item reveal" data-delay="400" role="listitem">
+          <button class="faq__question" aria-expanded="false" aria-controls="faq9">
+            <span>E se eu viajar ou tiver uma semana agitada?</span>
+            <div class="faq__icon" aria-hidden="true">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+            </div>
+          </button>
+          <div class="faq__answer" id="faq9" role="region">
+            <p>O Dolceo foi criado para a vida real — com viagens, festas e dias caóticos. O método ensina como fazer escolhas conscientes em qualquer situação, sem culpa. Se você pular alguns dias, pode retomar de onde parou. O progresso não é perdido e o app se adapta ao seu ritmo.</p>
+          </div>
+        </div>
       </div>
     </div>
   </section>
@@ -727,7 +791,7 @@
           <span class="nav__logo-mark" aria-hidden="true">✦</span>
           <span>Dolceo</span>
         </div>
-        <p class="footer__copy">© 2024 Método Dolceo. Todos os direitos reservados.</p>
+        <p class="footer__copy">© 2026 Método Dolceo. Todos os direitos reservados.</p>
         <div class="footer__links">
           <a href="#" onclick="return false;">Política de Privacidade</a>
           <a href="#" onclick="return false;">Termos de Uso</a>
