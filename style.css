@@ -1807,6 +1807,19 @@ ul { list-style: none; }
   .app-screen__phone--lg { width: 180px; }
 }
 
+/* Desativa animações pesadas dos orbs em mobile (performance) */
+@media (max-width: 640px) {
+  .orb--1, .orb--2, .orb--3 {
+    animation: none;
+    filter: blur(40px);
+    opacity: 0.5;
+  }
+  .app-section__orb, .offer__orb, .final-cta__orb {
+    filter: blur(40px);
+    opacity: 0.6;
+  }
+}
+
 @media (max-width: 640px) {
   :root {
     --space-xl: 60px;

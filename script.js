@@ -4,7 +4,6 @@
 
 /* ===== REVEAL ON SCROLL (IntersectionObserver) ===== */
 (function () {
-  // If browser doesn't support IntersectionObserver, reveal everything immediately
   if (!("IntersectionObserver" in window)) {
     document.querySelectorAll(".reveal").forEach((el) => el.classList.add("revealed"));
     return;
@@ -35,13 +34,11 @@ document.querySelectorAll(".faq__question").forEach((button) => {
 
     const isOpen = item.classList.contains("active");
 
-    // Close all open items
     document.querySelectorAll(".faq__item.active").forEach((openItem) => {
       openItem.classList.remove("active");
       openItem.querySelector(".faq__question").setAttribute("aria-expanded", "false");
     });
 
-    // If it wasn't open before, open it now
     if (!isOpen) {
       item.classList.add("active");
       button.setAttribute("aria-expanded", "true");
@@ -57,7 +54,6 @@ document.querySelectorAll(".faq__question").forEach((button) => {
   const STORAGE_KEY = "dolceo_offer_end_v2";
   let endTime = parseInt(localStorage.getItem(STORAGE_KEY) || "0", 10);
 
-  // If no timer stored or it already expired, create a fresh 2-hour window
   if (!endTime || endTime < Date.now()) {
     endTime = Date.now() + 2 * 60 * 60 * 1000;
     try { localStorage.setItem(STORAGE_KEY, String(endTime)); } catch (_) {}
@@ -72,16 +68,69 @@ document.querySelectorAll(".faq__question").forEach((button) => {
     const h = Math.floor(remaining / 3_600_000);
     const m = Math.floor((remaining % 3_600_000) / 60_000);
     const s = Math.floor((remaining % 60_000) / 1_000);
-
     hoursEl.textContent = String(h).padStart(2, "0");
     minsEl.textContent  = String(m).padStart(2, "0");
     secsEl.textContent  = String(s).padStart(2, "0");
-
     if (remaining === 0) clearInterval(interval);
   }
 
   update();
   const interval = setInterval(update, 1000);
+})();
+
+/* ===== STICKY CTA — aparece ao sair do hero ===== */
+(function () {
+  const sticky  = document.getElementById("stickyCta");
+  const hero    = document.getElementById("hero");
+  if (!sticky || !hero) return;
+
+  const heroObserver = new IntersectionObserver(
+    ([entry]) => {
+      sticky.classList.toggle("visible", !entry.isIntersecting);
+    },
+    { threshold: 0 }
+  );
+
+  heroObserver.observe(hero);
+})();
+
+/* ===== ANIMATED COUNTERS ===== */
+(function () {
+  function animateCounter(el) {
+    const target   = parseFloat(el.dataset.target);
+    const suffix   = el.dataset.suffix || "";
+    const prefix   = el.dataset.prefix || "";
+    const decimals = el.dataset.decimals ? parseInt(el.dataset.decimals) : 0;
+    const duration = 1800;
+    const start    = performance.now();
+
+    function step(now) {
+      const progress = Math.min((now - start) / duration, 1);
+      // ease-out cubic
+      const eased  = 1 - Math.pow(1 - progress, 3);
+      const value  = eased * target;
+      el.textContent = prefix + value.toFixed(decimals).replace(".", ",") + suffix;
+      if (progress < 1) requestAnimationFrame(step);
+    }
+
+    requestAnimationFrame(step);
+  }
+
+  if (!("IntersectionObserver" in window)) return;
+
+  const counterObserver = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          animateCounter(entry.target);
+          counterObserver.unobserve(entry.target);
+        }
+      });
+    },
+    { threshold: 0.5 }
+  );
+
+  document.querySelectorAll("[data-target]").forEach((el) => counterObserver.observe(el));
 })();
 
 /* ===== SMOOTH SCROLL FOR ANCHOR LINKS ===== */
@@ -107,7 +156,5 @@ function trackEvent(source) {
         source: source,
       });
     }
-  } catch (_) {
-    // fail silently — never block the checkout redirect
-  }
+  } catch (_) {}
 }
