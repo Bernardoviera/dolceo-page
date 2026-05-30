@@ -893,8 +893,8 @@ ul { list-style: none; }
 
 .app-dash__ring-text {
   position: absolute;
-  top: 50%; left: 50%;
-  transform: translate(-50%, -50%);
+  top: 50%; left: 0; right: 0;
+  transform: translateY(-50%);
   text-align: center;
 }
 
