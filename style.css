@@ -1685,14 +1685,17 @@ ul { list-style: none; }
 }
 
 .final-cta__note {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 6px;
+  text-align: center;
   font-size: 13px;
   color: rgba(255,255,255,0.40);
   margin-top: 16px;
   margin-bottom: 0 !important;
+}
+
+.final-cta__note svg {
+  display: inline;
+  vertical-align: middle;
+  margin-right: 4px;
 }
 
 /* ===== FOOTER ===== */

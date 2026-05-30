@@ -6,10 +6,17 @@ document.addEventListener("DOMContentLoaded", function () {
   document.querySelectorAll(".faq__question").forEach((button) => {
     button.addEventListener("click", function () {
       const item = button.closest(".faq__item");
-
       if (!item) return;
 
-      item.classList.toggle("active");
+      const isActive = item.classList.contains("active");
+
+      document.querySelectorAll(".faq__item").forEach((el) => {
+        el.classList.remove("active");
+      });
+
+      if (!isActive) {
+        item.classList.add("active");
+      }
     });
   });
 });
