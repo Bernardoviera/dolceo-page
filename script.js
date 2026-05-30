@@ -3,6 +3,17 @@ document.addEventListener("DOMContentLoaded", function () {
     el.classList.add("revealed");
   });
 
+  const stickyCta = document.getElementById("stickyCta");
+  if (stickyCta) {
+    window.addEventListener("scroll", function () {
+      if (window.scrollY > 400) {
+        stickyCta.classList.add("visible");
+      } else {
+        stickyCta.classList.remove("visible");
+      }
+    }, { passive: true });
+  }
+
   document.querySelectorAll(".faq__question").forEach((button) => {
     button.addEventListener("click", function () {
       const item = button.closest(".faq__item");
