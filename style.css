@@ -909,6 +909,8 @@ ul { list-style: none; }
 .app-dash__ring-sub {
   font-size: 8px;
   color: rgba(255,255,255,0.45);
+  display: block;
+  white-space: nowrap;
 }
 
 /* Diary screen */
