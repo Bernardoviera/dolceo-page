@@ -1814,6 +1814,15 @@ ul { list-style: none; }
     --space-2xl: 80px;
   }
 
+  .final-cta__btn {
+    width: 100%;
+    max-width: 100%;
+  }
+
+  .final-cta__note svg {
+    display: none;
+  }
+
   .nav { padding: 16px 20px; }
   .nav__cta { display: none; }
 
