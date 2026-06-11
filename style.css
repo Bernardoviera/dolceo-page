@@ -41,7 +41,7 @@
 
   /* Typography */
   --font-display:       'Cormorant Garamond', Georgia, serif;
-  --font-body:          'DM Sans', system-ui, -apple-system, sans-serif;
+  --font-body:          'Raleway', system-ui, -apple-system, sans-serif;
 
   /* Spacing */
   --space-xs:    8px;
@@ -239,7 +239,7 @@ ul { list-style: none; }
 .reveal {
   opacity: 1;
   transform: translateY(28px);
-  transition: opacity 0.7s cubic-bezier(0.4,0,0.2,1), transform 0.7s cubic-bezier(0.4,0,0.2,1);
+  transition: opacity 0.5s cubic-bezier(0.4,0,0.2,1), transform 0.5s cubic-bezier(0.4,0,0.2,1);
 }
 
 .reveal.revealed {
@@ -523,7 +523,7 @@ ul { list-style: none; }
   width: var(--w, 0%);
   background: var(--grad-cta);
   border-radius: 2px;
-  animation: fillBar 1.5s 0.5s ease-out both;
+  animation: fillBar 0.9s 0.3s ease-out both;
 }
 
 @keyframes fillBar {
@@ -1248,6 +1248,8 @@ ul { list-style: none; }
   font-weight: 700;
   color: white;
   flex-shrink: 0;
+  overflow: hidden;
+  object-fit: cover;
 }
 
 .testimonial-card__avatar--1 { background: linear-gradient(135deg, #F9BDC5, #EF93A0); }
