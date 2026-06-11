@@ -15,7 +15,7 @@ document.addEventListener("DOMContentLoaded", function () {
           const prefix = el.dataset.prefix || "";
           const suffix = el.dataset.suffix || "";
           const decimal = el.dataset.decimal === "true";
-          const duration = 1600;
+          const duration = 2800;
           const start = performance.now();
           function update(now) {
             const progress = Math.min((now - start) / duration, 1);

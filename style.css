@@ -1248,8 +1248,6 @@ ul { list-style: none; }
   font-weight: 700;
   color: white;
   flex-shrink: 0;
-  overflow: hidden;
-  object-fit: cover;
 }
 
 .testimonial-card__avatar--1 { background: linear-gradient(135deg, #F9BDC5, #EF93A0); }
