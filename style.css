@@ -721,6 +721,10 @@ ul { list-style: none; }
   border-radius: inherit;
 }
 
+.benefit-card {
+  cursor: pointer;
+}
+
 .benefit-card:hover {
   transform: translateY(-4px);
   box-shadow: var(--shadow-lg);
@@ -1217,6 +1221,10 @@ ul { list-style: none; }
   border-radius: var(--radius-lg);
   padding: 28px;
   transition: all var(--transition-base);
+}
+
+.testimonial-card {
+  cursor: pointer;
 }
 
 .testimonial-card:hover {
