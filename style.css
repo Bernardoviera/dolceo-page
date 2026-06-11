@@ -296,6 +296,20 @@ ul { list-style: none; }
   animation: floatOrb3 12s ease-in-out infinite;
 }
 
+.orb--center {
+  width: 820px; height: 580px;
+  background: radial-gradient(ellipse, rgba(239,147,160,0.22) 0%, rgba(201,169,110,0.10) 45%, transparent 70%);
+  top: 50%; left: 50%;
+  transform: translate(-50%, -52%);
+  animation: floatOrbCenter 10s ease-in-out infinite;
+  z-index: 1;
+}
+
+@keyframes floatOrbCenter {
+  0%, 100% { transform: translate(-50%, -52%) scale(1); }
+  50%       { transform: translate(-50%, -50%) scale(1.06); }
+}
+
 @keyframes floatOrb1 {
   0%, 100% { transform: translate(0, 0) scale(1); }
   50% { transform: translate(30px, 40px) scale(1.08); }

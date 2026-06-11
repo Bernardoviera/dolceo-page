@@ -6,18 +6,19 @@ document.addEventListener("DOMContentLoaded", function () {
   // Hero particles
   const particlesContainer = document.getElementById("particles");
   if (particlesContainer) {
-    const colors = ["#F9BDC5", "#EF93A0", "#C9A96E", "#E8D5B0", "#FDE8EC"];
-    for (let i = 0; i < 28; i++) {
+    const colors = ["#F9BDC5", "#EF93A0", "#C9A96E", "#E8D5B0", "#FDE8EC", "#ffffff"];
+    for (let i = 0; i < 32; i++) {
       const p = document.createElement("span");
       p.className = "hero__particle";
-      const size = 2 + Math.random() * 4;
-      const left = Math.random() * 100;
-      const bottom = Math.random() * 40;
-      const dur = 5 + Math.random() * 6;
-      const delay = Math.random() * 8;
-      const drift = (Math.random() - 0.5) * 60;
+      const size = 2.5 + Math.random() * 5;
+      const left = 5 + Math.random() * 90;
+      const bottom = Math.random() * 55;
+      const dur = 5 + Math.random() * 7;
+      const delay = Math.random() * 9;
+      const drift = (Math.random() - 0.5) * 70;
+      const opacity = 0.55 + Math.random() * 0.45;
       const color = colors[Math.floor(Math.random() * colors.length)];
-      p.style.cssText = `width:${size}px;height:${size}px;left:${left}%;bottom:${bottom}%;background:${color};opacity:0.7;--dur:${dur}s;--delay:${delay}s;--drift:${drift}px;`;
+      p.style.cssText = `width:${size}px;height:${size}px;left:${left}%;bottom:${bottom}%;background:${color};opacity:${opacity};--dur:${dur}s;--delay:${delay}s;--drift:${drift}px;`;
       particlesContainer.appendChild(p);
     }
   }
