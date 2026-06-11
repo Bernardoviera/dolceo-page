@@ -1,16 +1,20 @@
 document.addEventListener("DOMContentLoaded", function () {
-  // Scroll reveal
+  // Scroll reveal — double rAF ensures initial opacity:0 is painted before observer fires
   const revealEls = document.querySelectorAll(".reveal");
   if (revealEls.length > 0) {
-    const revealObserver = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add("revealed");
-          revealObserver.unobserve(entry.target);
-        }
+    requestAnimationFrame(() => {
+      requestAnimationFrame(() => {
+        const revealObserver = new IntersectionObserver((entries) => {
+          entries.forEach(entry => {
+            if (entry.isIntersecting) {
+              entry.target.classList.add("revealed");
+              revealObserver.unobserve(entry.target);
+            }
+          });
+        }, { threshold: 0.05 });
+        revealEls.forEach(el => revealObserver.observe(el));
       });
-    }, { threshold: 0.12, rootMargin: "0px 0px -32px 0px" });
-    revealEls.forEach(el => revealObserver.observe(el));
+    });
   }
 
   // Hero particles
