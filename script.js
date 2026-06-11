@@ -1,7 +1,17 @@
 document.addEventListener("DOMContentLoaded", function () {
-  document.querySelectorAll(".reveal").forEach((el) => {
-    el.classList.add("revealed");
-  });
+  // Scroll reveal
+  const revealEls = document.querySelectorAll(".reveal");
+  if (revealEls.length > 0) {
+    const revealObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("revealed");
+          revealObserver.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.12, rootMargin: "0px 0px -32px 0px" });
+    revealEls.forEach(el => revealObserver.observe(el));
+  }
 
   // Hero particles
   const particlesContainer = document.getElementById("particles");
