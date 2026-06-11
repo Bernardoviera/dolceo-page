@@ -213,18 +213,11 @@ ul { list-style: none; }
 
 .section-title em {
   font-style: italic;
-  background: var(--grad-cta);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
 }
 
 .section-title--light { color: var(--color-white); }
 .section-title--light em {
-  background: var(--grad-gold);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
+  font-style: italic;
 }
 
 .section-sub {
@@ -398,10 +391,6 @@ ul { list-style: none; }
 
 .hero__headline em {
   font-style: italic;
-  background: var(--grad-gold);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
 }
 
 .hero__subheadline {
@@ -1679,10 +1668,12 @@ ul { list-style: none; }
 
 .final-cta__content h2 em {
   font-style: italic;
-  background: var(--grad-gold);
+  background: linear-gradient(90deg, #C9A96E 0%, #F0D89A 35%, #ffe9b5 50%, #F0D89A 65%, #C9A96E 100%);
+  background-size: 220% auto;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
+  animation: textShimmer 4s ease-in-out infinite;
 }
 
 .final-cta__content p {
@@ -1990,4 +1981,78 @@ html, body {
 
 .faq__question {
   cursor: pointer;
+}
+
+/* ===== ANIMATION: BUTTON SHIMMER ===== */
+@keyframes btnShimmer {
+  0%   { transform: translateX(-120%) skewX(-20deg); }
+  100% { transform: translateX(250%) skewX(-20deg); }
+}
+
+.btn--primary::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 45%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.22), transparent);
+  transform: translateX(-120%) skewX(-20deg);
+  animation: btnShimmer 3.2s ease-in-out infinite;
+  pointer-events: none;
+}
+
+/* ===== ANIMATION: HERO PARTICLES ===== */
+.hero__particles {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+@keyframes particleFloat {
+  0%   { transform: translateY(0) translateX(0) scale(1); opacity: 0; }
+  15%  { opacity: 1; }
+  85%  { opacity: 0.6; }
+  100% { transform: translateY(-110px) translateX(var(--drift, 20px)) scale(0.4); opacity: 0; }
+}
+
+.hero__particle {
+  position: absolute;
+  border-radius: 50%;
+  animation: particleFloat var(--dur, 6s) ease-in-out var(--delay, 0s) infinite;
+}
+
+/* ===== ANIMATION: GRADIENT TEXT SHIMMER ===== */
+@keyframes textShimmer {
+  0%   { background-position: 0% 50%; }
+  50%  { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+.hero__headline em {
+  background: linear-gradient(90deg, #C9A96E 0%, #F0D89A 35%, #E8C97A 50%, #F0D89A 65%, #C9A96E 100%);
+  background-size: 220% auto;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  animation: textShimmer 4s ease-in-out infinite;
+}
+
+.section-title em {
+  background: linear-gradient(90deg, #EF93A0 0%, #F9BDC5 30%, #ffd6dc 50%, #F9BDC5 70%, #EF93A0 100%);
+  background-size: 220% auto;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  animation: textShimmer 4s ease-in-out infinite;
+}
+
+.section-title--light em {
+  background: linear-gradient(90deg, #C9A96E 0%, #F0D89A 35%, #ffe9b5 50%, #F0D89A 65%, #C9A96E 100%);
+  background-size: 220% auto;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  animation: textShimmer 4s ease-in-out infinite;
 }

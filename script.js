@@ -3,6 +3,25 @@ document.addEventListener("DOMContentLoaded", function () {
     el.classList.add("revealed");
   });
 
+  // Hero particles
+  const particlesContainer = document.getElementById("particles");
+  if (particlesContainer) {
+    const colors = ["#F9BDC5", "#EF93A0", "#C9A96E", "#E8D5B0", "#FDE8EC"];
+    for (let i = 0; i < 28; i++) {
+      const p = document.createElement("span");
+      p.className = "hero__particle";
+      const size = 2 + Math.random() * 4;
+      const left = Math.random() * 100;
+      const bottom = Math.random() * 40;
+      const dur = 5 + Math.random() * 6;
+      const delay = Math.random() * 8;
+      const drift = (Math.random() - 0.5) * 60;
+      const color = colors[Math.floor(Math.random() * colors.length)];
+      p.style.cssText = `width:${size}px;height:${size}px;left:${left}%;bottom:${bottom}%;background:${color};opacity:0.7;--dur:${dur}s;--delay:${delay}s;--drift:${drift}px;`;
+      particlesContainer.appendChild(p);
+    }
+  }
+
   // Animated counters
   const counters = document.querySelectorAll("[data-counter]");
   if (counters.length > 0) {
